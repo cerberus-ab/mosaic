@@ -1,0 +1,390 @@
+/* Общее */
+BODY {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: rgba(255,255,255,1);
+}
+* { 
+    font-family: Times New Roman; 
+}
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+h5 {
+    position: absolute;
+    color: #676767;
+    bottom: 15px;
+    right: 20px;
+    font-size: 16px;            
+    text-align: right;
+    z-index: 200;
+}
+.window {
+    display: block;
+    position: absolute;
+    border: 2px solid rgba(103,103,103,1);
+    -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,1) url(./../img/bg-widget.png) repeat;
+}
+.winhead {
+    left: -1px;
+    right: -1px;
+    top: -1px;
+    padding: 0;
+    position: absolute;
+    border: 1px solid rgba(103,103,103,0);
+    overflow: hidden;
+    line-height: 35px;
+    vertical-align: middle;
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    background: rgba(103,103,103,1) url(./../img/bg-header.png) repeat;
+}
+.winhead h2 {
+    float: left;
+    margin-left: 19px;
+    display: inline;
+    font-size: 20px;            
+    font-family: monospace;
+    cursor: default;
+    color: #BFBFBF;
+}
+.wform {
+    position: absolute;
+    border: 1px solid rgba(103,103,103,0);
+    padding: 5px;
+    overflow: hidden;
+}
+INPUT, SELECT, .input_div {
+    display: block;
+    color: #1F1F1F;
+    height: 24px;
+    width: 110px;
+    border: 1px solid rgba(103,103,103,1);
+    background: rgba(255,255,255,1);
+    float: left;
+    padding-left: 2px;
+    font-size: 16px;
+    font-family: monospace;
+}
+INPUT[type=button] {
+    height: 26px;
+    width: 114px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.8);
+}
+INPUT[type=button]:enabled:hover {
+    background: rgba(255,255,255,1);
+}
+INPUT:read-only, INPUT:disabled {
+    background: rgba(255,255,255,0);
+    cursor: default;
+}
+INPUT[type=button]:disabled {
+    color: #BFBFBF;
+    border: 1px solid rgba(191,191,191,1);
+}
+INPUT.inerror {
+    color: red;
+}
+#widget {            
+    height: 610px;
+    width: 670px;
+    margin-top: -305px;
+    margin-left: -335px;
+    top: 50%;
+    left: 50%; 
+    z-index: 1; 
+    display: block;          
+}
+/* Заголовок */
+#header {
+    
+}
+#header UL {
+    list-style-type: none;
+    margin: 0;
+    left: 19px;
+    padding: 0;
+    width: auto;
+    height: 30px;
+    display: block;
+    border: 1px solid rgba(255,255,255,0);
+    position: absolute;
+    top: 3px;
+}
+#header UL LI {
+    display: inline-block;
+    margin-right: 12px;
+    border: 1px solid rgba(103,103,103,1);
+    cursor: pointer;
+    width: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+    text-align: center;
+    color: #1F1F1F;
+    font-size: 18px;
+    float: left;
+}
+#header UL LI[name=but_about], #header UL LI[name=but_help] {
+    background-color: rgba(255,255,255,0.8);
+}
+#header UL LI[name=but_about]:hover, #header UL LI[name=but_help]:hover {
+    background-color: rgba(255,255,255,1);
+}
+#header UL LI[name=but_stat] {
+    background-color: rgba(255,127,0,0.8);
+}
+#header UL LI[name=but_stat]:hover {
+    background-color: rgba(255,127,0,1);
+}
+#header UL LI[name=but_source] {
+    background-color: rgba(103,103,103,0.8);
+}
+#header UL LI[name=but_source]:hover {
+    background-color: rgba(103,103,103,1);
+}
+#header h4 {
+    float: right;
+    margin-right: 19px;
+    display: inline;
+    font-size: 16px;            
+    font-family: monospace;
+    cursor: default;
+}
+#header h4.status_online {
+    color: #BFBFBF;
+}
+#header h4.status_offline {
+    color: #676767;
+} 
+/* Контейнер превью изображений */
+#picset {
+    bottom: 14px;
+    left: 19px;
+    right: 19px;
+    height: 115px;
+    overflow-x: auto;
+    border-top-color: rgba(103,103,103,1);
+    background-color: rgba(255,255,255,0.8);
+}
+#picset UL {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 100%;
+    display: block;
+}
+#picset LI {
+    display: inline-block;
+    margin: 3px;
+    border: 1px solid rgba(103,103,103,1);
+    position: relative;
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    float: left;
+}
+#picset UL .li_active {
+    cursor: default;
+}
+#picset LI IMG {
+    height: 100%;
+}
+#picset LI IMG[data-type=picture] {
+    z-index: 1;
+}
+#picset LI .holder {
+    z-index: 2;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.5);
+    top: 0;
+    left: 0;
+}
+#picset LI:hover .holder {
+    background-color: rgba(255,255,255,0);
+}
+#picset LI IMG[data-type=lock] {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* Контейнер рабочего пространства */
+#picture {           
+    top: 49px;
+    left: 19px;
+    height: 400px;
+    width: 400px;  
+    background-color: rgba(255,255,255,0.8);                    
+}
+.container UL {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.container LI {
+    margin: 1px;
+    padding: 0;
+    border: 1px solid rgba(103,103,103,1);
+    position: relative;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    float: left;
+}
+.container .placeholder {
+    border: 1px dashed rgba(103, 103, 103, 1);
+}
+.container IMG {
+    position: absolute;
+}
+/* Контейнер управляющих кнопок */
+#control {
+    top: 49px;
+    right: 19px;
+    height: 400px;
+    width: 200px;
+} 
+#control #record {
+    display: block;
+    padding-left: 6px;
+    padding-right: 6px;
+    width: 186px;
+    height: 120px;
+    margin-bottom: 26px;
+    background-color: rgba(103,103,103,0.1);
+    border: 1px solid rgba(103, 103, 103, 0);
+}
+#record h2 {
+    color: #1F1F1F;
+    font-size: 22px;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 185px;
+}
+#record h3 {
+    color: #1F1F1F;
+    font-size: 16px;
+}
+#control TABLE {
+    border-spacing: 0px 2px;
+    width: 100%;
+    border: 0;
+    margin: 0;
+}
+#control TABLE TR {
+    height: 40px;
+    vertical-align: middle;
+}
+#control TABLE TD {
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #1F1F1F;
+    font-size: 16px;
+    background-color: rgba(103,103,103,0.1);
+}
+#control .input_div {
+    padding: 2px;
+    height: 20px;
+    width: 108px;
+    background: rgba(255,255,255,0.8);
+}
+#control .input_div .input_div_bar {
+    height: 100%;
+    width: auto;
+    background-color: rgba(255,127,0,0.8);
+}
+/* Окно результата */
+#mask {
+    position:absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: rgba(191,191,191,1);
+    opacity: 0.5;
+    cursor: wait;
+    display: none;           
+}
+#result {
+    margin-top: -220px;
+    margin-left: -160px;
+    top: 50%;
+    left: 50%; 
+    width: 360px;
+    height: 320px;
+    z-index: 101;
+    display: none;
+}
+#result > INPUT {
+    position: absolute;
+    bottom: 14px;
+    width: 90px;
+}
+#result INPUT[name=close] {
+    right: 14px;
+}
+#result INPUT[name=accept] {
+    right: 114px;
+}
+#result INPUT[name=player] {
+    width: 180px;
+}
+#player {           
+    top: 49px;
+    left: 14px;
+    right: 14px;
+    bottom: 49px;
+    padding: 0;                    
+}
+#player TABLE {
+    border-spacing: 0px 0px;
+    width: 100%;
+    border: 0;
+    margin: 0;
+}
+#player TABLE TR {
+    vertical-align: middle;
+    height: 25px;
+    color: #1F1F1F;
+    font-size: 16px;
+}
+#player TABLE TD:nth-child(1) {
+    padding-left: 20px;
+    width: 100px;
+}
+#player TABLE TR:nth-child(1) {
+    height: 40px;
+}
+#player TABLE TR:nth-child(1) TD:nth-child(1) {
+    padding-left: 10px;
+}
+#player TABLE TR:nth-child(1) TD:nth-child(1) H2 {
+    font-size: 22px;
+    color: #1F1F1F;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#player TABLE TR:nth-child(5) {
+    height: 60px;
+}
+#player TABLE TR:nth-child(5) TD:nth-child(1) {
+    padding-left: 10px;
+    font-size: 18px;
+}
